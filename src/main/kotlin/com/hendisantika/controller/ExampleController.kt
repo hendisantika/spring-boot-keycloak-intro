@@ -1,10 +1,10 @@
 package com.hendisantika.controller
 
 import org.springframework.http.ResponseEntity
-import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.annotation.security.RolesAllowed
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,19 +17,21 @@ import org.springframework.web.bind.annotation.RestController
  * To change this template use File | Settings | File Templates.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/example")
 class ExampleController {
-    @GetMapping("/example")
-    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/user")
+//    @PreAuthorize("hasRole('user')")
+    @RolesAllowed("user")
     fun getUserInfo(): ResponseEntity<String> =
         ResponseEntity.ok("User info")
 
-    @GetMapping("/example/admin")
-    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/admin")
+//    @PreAuthorize("hasRole('admin')")
+    @RolesAllowed("admin")
     fun getAdminInfo(): ResponseEntity<String> =
-        ResponseEntity.ok("User info")
+        ResponseEntity.ok("Admin info")
 
-    @GetMapping("/public/example")
+    @GetMapping("/public")
     fun getPublicInfo(): ResponseEntity<String> =
         ResponseEntity.ok("Public info")
 }
