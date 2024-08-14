@@ -21,7 +21,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.keycloak:keycloak-spring-boot-starter:24.0.4")
+    implementation("org.keycloak:keycloak-spring-boot-starter:24.0.5")
     implementation("org.springframework.boot:spring-boot-starter-security")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
